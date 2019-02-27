@@ -1,4 +1,5 @@
 #!/bin/python3
+
 def fact( num ):
 
 	if(num <= 0):
@@ -16,7 +17,10 @@ def fact( num ):
 
 	return total
 
-reps = int(input())
+def fctrl2():
+	reps = int(input())
+	for i in range(reps):
+		print(fact(int(input())))
 
-for i in range(reps):
-	print(fact(int(input())))
+if __name__ == "__main__":
+	fctrl2()	
