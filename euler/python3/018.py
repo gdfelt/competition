@@ -50,7 +50,7 @@ def calc_sum_list(upper_list, lower_list):
   return tmp_set
 
 def main():
-  with open('p067_triangle.dat') as file:
+  with open('resources/p018_triangle.dat') as file:
     num_lines = sum(1 for line in file)
     file.seek(0)
     running_list = []
