@@ -9,7 +9,7 @@ def calc_prod(ss):
 	return prod
 
 def main():
-	with open('large_prods.dat') as file:
+	with open('resources/large_prods.dat') as file:
 		line = file.read()
 		max_prod = 0
 		max_index = 0

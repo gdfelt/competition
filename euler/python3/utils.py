@@ -2,6 +2,20 @@
 
 import functools
 
+def get_prime_sieve(up_limit):
+    sieve = [True] * up_limit
+    sieve[0] = sieve[1] = False
+
+    for (i, isprime) in enumerate(sieve):
+        #print(i)
+        if isprime:
+          #  yield i
+            for n in range(i*i, up_limit, i):
+                sieve[n] = False
+    #print(sieve)
+    return list(sieve)
+
+
 def is_prime(n):
     """"pre-condition: n is an integer
     post-condition: return True if n is prime and False otherwise."""
