@@ -39,3 +39,14 @@ def is_prime(n):
 def fact( num ):
     fact_list = sorted(set(functools.reduce(list.__add__,([i, num//i] for i in range(1, int(num**0.5) + 1) if num % i == 0))))
     return fact_list
+
+
+def is_palindrome(num):
+    s = str(num)
+    for i in range(0, len(s)//2):
+        if s[i] != s[len(s) - i - 1]:
+            return False
+    return True
+
+
+
