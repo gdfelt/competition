@@ -7,7 +7,7 @@ def main():
 	for perm in itertools.permutations([0,1,2,3,4,5,6,7,8,9]):
 		count += 1
 		if count == 1000000:
-			print(perm)
+			print("".join(perm))
 			break
 
 

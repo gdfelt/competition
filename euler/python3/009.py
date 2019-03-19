@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Project Euler Problem 9
 =======================
@@ -13,3 +15,15 @@ Find the product abc.
 """
 
 
+
+def main():
+	for n in range(1, 30):
+		for m in range(n + 1, 30):
+			a = m*m - n*n
+			b = 2 * m * n
+			c = m*m + n*n
+			if a + b + c == 1000:
+				print(a*b*c)
+
+if __name__ == "__main__":
+	main()

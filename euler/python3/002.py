@@ -13,4 +13,20 @@ Find the sum of all the even-valued terms in the sequence which do not
 exceed four million.
 """
 
+term_limit = 4000000
 
+def main():
+	t1 = 1
+	t2 = 2
+	s = 2
+
+	while t2 < term_limit:
+		next = t1 + t2
+		t1 = t2
+		t2 = next
+		if next % 2 == 0:
+			s += next
+	print(s)
+
+if __name__ == "__main__":
+	main()
