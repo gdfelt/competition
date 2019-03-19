@@ -48,5 +48,3 @@ def is_palindrome(num):
             return False
     return True
 
-
-
