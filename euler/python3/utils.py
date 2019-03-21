@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import functools
+import math
 
 def get_prime_sieve(up_limit):
     sieve = [True] * up_limit
@@ -16,12 +17,14 @@ def get_prime_sieve(up_limit):
     return list(sieve)
 
 
-def is_prime(n):
-    """"pre-condition: n is an integer
+""""pre-condition: n is an integer
     post-condition: return True if n is prime and False otherwise."""
+def is_prime(n):
+    
     if n < 2: return False
     if n == 2: return True
     if n == 3: return True
+    
     if n % 2 == 0: return False
     if n % 3 == 0: return False
     
@@ -33,6 +36,11 @@ def is_prime(n):
         i += w
         w = 6 - w
     return True
+
+
+@functools.lru_cache(maxsize=None)
+def get_factorial(num):
+    return math.factorial(num)
 
 
 @functools.lru_cache(maxsize=None)
