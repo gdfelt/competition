@@ -55,6 +55,6 @@ def main():
 			max_value = i
 
 	print(str(max_value))
-
+	print(get_next_value.cache_info())
 if __name__ == "__main__":
 	main()
