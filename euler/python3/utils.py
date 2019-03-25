@@ -8,13 +8,15 @@ def get_prime_sieve(up_limit):
     sieve[0] = sieve[1] = False
 
     for (i, isprime) in enumerate(sieve):
-        #print(i)
         if isprime:
-          #  yield i
             for n in range(i*i, up_limit, i):
                 sieve[n] = False
-    #print(sieve)
     return list(sieve)
+
+
+def print_sieve(up_limit):
+    for index, b in enumerate(get_prime_sieve(up_limit)):
+        if b: print(index)
 
 
 """"pre-condition: n is an integer
