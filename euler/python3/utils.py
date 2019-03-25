@@ -56,3 +56,6 @@ def is_palindrome(num):
             return False
     return True
 
+
+def most_common(lst):
+    return max(set(lst), key=lst.count)
