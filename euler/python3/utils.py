@@ -51,6 +51,13 @@ def fact( num ):
     return fact_list
 
 
+def is_permuation(a, b):
+    returnvalue = False
+    if len(a) == len(b):
+        returnvalue = (sorted(a) == sorted(b))
+    return returnvalue
+
+
 def is_palindrome(num):
     s = str(num)
     for i in range(0, len(s)//2):
