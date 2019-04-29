@@ -18,6 +18,7 @@ How many different ways can -L-2 be made using any number of coins?
 
 import functools
 
+@functools.lru_cache(maxsize=None)
 def count_coins(coin_list, index, sum_target):
     if sum_target == 0:
         return 1
@@ -29,11 +30,8 @@ def count_coins(coin_list, index, sum_target):
             count_coins(coin_list, index, sum_target - coin_list[index - 1])
 
 def main():
-    coins = [1, 2, 5, 10, 20, 50, 100, 200]
+    coins = 1, 2, 5, 10, 20, 50, 100, 200
     print(count_coins(coins, len(coins), 200))
-
-
-
 
 if __name__ == "__main__":
     main()
