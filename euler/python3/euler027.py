@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 Project Euler Problem 27
 ========================
@@ -27,4 +29,38 @@ expression that produces the maximum number of primes for consecutive
 values of n, starting with n = 0.
 """
 
+import utils
 
+def count_primes(a, b, sieve):
+    n = 0
+    count = 0
+    while True:
+        x = n * n + a * n + b
+        if sieve[x] == True:
+            count += 1
+            n += 1
+        else:
+            return count
+
+
+def main():
+    sieve_limit = 1000000 
+    quad_limit = 1000
+    best_a = 0
+    best_b = 0
+    best_count = 0
+
+    sieve = utils.get_prime_sieve(sieve_limit)
+    
+    for b in range(quad_limit):
+        if sieve[b] == True:
+            for a in range(-1 * quad_limit, quad_limit):
+                count = count_primes(a, b, sieve) 
+                if count > best_count:
+                    best_a = a
+                    best_b = b
+                    best_count = count
+    print(best_a * best_b)
+
+if __name__ == '__main__':
+	main()
