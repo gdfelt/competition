@@ -16,7 +16,7 @@ top_limit = 998001 # Answer won't exceed this
 low_limit = 10000
 
 def check_factors(num):
-	fact_list = utils.fact(num)
+	fact_list = utils.get_factors(num)
 	for index, fp in enumerate(fact_list):
 		if len(str(fp)) == 3 and len(str(fact_list[len(fact_list) - index - 1])) == 3:
 			return True

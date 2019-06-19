@@ -13,7 +13,7 @@ import utils
 
 def main():
 	target = 600851475143
-	fac_list = utils.fact(target)
+	fac_list = utils.get_factors(target)
 	for f in reversed(fac_list):
 		if utils.is_prime(f):
 			print(f)

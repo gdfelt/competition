@@ -45,8 +45,14 @@ def get_factorial(num):
     return math.factorial(num)
 
 
+#@functools.lru_cache(maxsize=None)
+#def fact( num ):
+#    fact_list = sorted(set(functools.reduce(list.__add__,([i, num//i] for i in range(1, int(num**0.5) + 1) if num % i == 0))))
+#    return fact_list
+
+
 @functools.lru_cache(maxsize=None)
-def fact( num ):
+def get_factors( num ):
     fact_list = sorted(set(functools.reduce(list.__add__,([i, num//i] for i in range(1, int(num**0.5) + 1) if num % i == 0))))
     return fact_list
 

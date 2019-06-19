@@ -36,7 +36,7 @@ def main():
 	while fact_count < 500:
 		index += 1
 		run_sum += index
-		fact_count = len(utils.fact(run_sum))
+		fact_count = len(utils.get_factors(run_sum))
 	
 	print(str(run_sum))
 

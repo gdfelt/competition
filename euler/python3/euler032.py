@@ -25,7 +25,7 @@ def main():
 	for x in range(2000,10000):
 		s = str(x)
 		if len(set(s)) == len(s) and '0' not in s:
-			fact_list = utils.fact(x)[1:-1]
+			fact_list = utils.get_factors(x)[1:-1]
 			for i,f in enumerate(fact_list[:len(fact_list)//2]):
 				tmp = str(fact_list[i]) + str(fact_list[len(fact_list) - i -1]) + s
 				if len(tmp) == 9 and len(set(tmp)) == len(tmp) and '0' not in tmp:

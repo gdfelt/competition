@@ -42,7 +42,7 @@ def main():
 	
 	# build abundant number list
 	for x in range(12, 28123+1):
-		if sum([ n for n in utils.fact(x)[:-1]]) > x:
+		if sum([ n for n in utils.get_factors(x)[:-1]]) > x:
 			abundant_list.append(x)
 			for num in abundant_list:
 				sum_abundant.add(x + num)

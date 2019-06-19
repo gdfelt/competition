@@ -20,7 +20,7 @@ import utils
 
 def sum_of_pd(num):
 	s = 0
-	for x in utils.fact(num)[:-1]:
+	for x in utils.get_factors(num)[:-1]:
 		s += x
 	return s
 
