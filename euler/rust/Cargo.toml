@@ -8,3 +8,6 @@ edition = "2018"
 [lib]
 name = "project_euler"
 path = "src/lib.rs"
+doctest = false
+
+

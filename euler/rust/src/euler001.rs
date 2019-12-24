@@ -1,6 +1,6 @@
-    
+
 pub fn main() -> i32 {
-    sum_div_by(3) + sum_div_by(5) - sum_div_by(15)   
+    sum_div_by(3) + sum_div_by(5) - sum_div_by(15)
 }
 
 fn sum_div_by(num:i32) -> i32 {
@@ -11,7 +11,7 @@ fn sum_div_by(num:i32) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    
+
     use super::*;
 
     #[test]
