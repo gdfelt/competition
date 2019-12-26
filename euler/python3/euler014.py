@@ -48,7 +48,7 @@ def get_collatz(num):
 def main():
 	max_count = 0
 	max_value = 0
-	for i in range(2, max_num):
+	for i in range(max_num // 2, max_num):
 		tmp_count = get_collatz(i)
 		if tmp_count > max_count:
 			max_count = tmp_count
