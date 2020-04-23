@@ -1,5 +1,4 @@
 pub fn square_of_sum(n: u32) -> u32 {
-    // unimplemented!("square of sum of 1...{}", n)
     if n <= 1 {
         1
     } else {
