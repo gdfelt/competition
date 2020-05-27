@@ -8,7 +8,7 @@ import (
 func Distance(a, b string) (int, error) {
 
 	if len(a) != len(b) {
-		return -1, e.New("Strings are not equal")
+		return -1, e.New("strings are not equal")
 	}
 
 	count := 0
