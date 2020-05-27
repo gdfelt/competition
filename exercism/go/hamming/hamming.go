@@ -4,6 +4,7 @@ import (
 	e "errors"
 )
 
+// Distance calculates the hamming distance between two DNA strings
 func Distance(a, b string) (int, error) {
 
 	if len(a) != len(b) {
@@ -12,9 +13,9 @@ func Distance(a, b string) (int, error) {
 
 	count := 0
 
-	for i, _ := range a {
+	for i := range a {
 		if a[i] != b[i] {
-			count += 1
+			count++
 		}
 	}
 
