@@ -1,8 +1,6 @@
 package luhn
 
-import (
-	"strings"
-)
+import "strings"
 
 // Valid calculates whether a given number is valid per the Luhn algorithm
 // Algorithm documented here: https://en.wikipedia.org/wiki/Luhn_algorithm#Pseudocode_implementation
@@ -18,23 +16,17 @@ func Valid(ccNumber string) bool {
 	}
 
 	for i := 0; i < nDigits-1; i++ {
-
-		if !('0' <= newString[i] && newString[i] <= '9') {
+		digit := int(newString[i] - '0')
+		if digit < 0 || digit > 9 {
 			return false
 		}
-
-		digit := int(newString[i]) - '0'
-
 		if i%2 == parity {
-			digit = digit * 2
+			digit *= 2
 		}
-
 		if digit > 9 {
-			digit = digit - 9
+			digit -= 9
 		}
-
-		sum = sum + digit
-
+		sum += digit
 	}
 
 	return sum%10 == 0
