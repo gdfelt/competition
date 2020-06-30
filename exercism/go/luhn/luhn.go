@@ -6,28 +6,24 @@ import "strings"
 // Algorithm documented here: https://en.wikipedia.org/wiki/Luhn_algorithm#Pseudocode_implementation
 func Valid(ccNumber string) bool {
 	newString := strings.ReplaceAll(ccNumber, " ", "")
-
-	nDigits := len(newString)
-	sum := int(newString[nDigits-1]) - '0'
-	parity := nDigits % 2
-
-	if nDigits < 2 {
+	sum := 0
+	parity := len(newString)%2 == 0
+	if len(newString) < 2 {
 		return false
 	}
-
-	for i := 0; i < nDigits-1; i++ {
-		digit := int(newString[i] - '0')
+	for _, r := range newString {
+		digit := int(r - '0')
 		if digit < 0 || digit > 9 {
 			return false
 		}
-		if i%2 == parity {
+		if parity {
 			digit *= 2
 		}
 		if digit > 9 {
 			digit -= 9
 		}
 		sum += digit
+		parity = !parity
 	}
-
 	return sum%10 == 0
 }
