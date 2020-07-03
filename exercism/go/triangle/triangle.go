@@ -1,28 +1,44 @@
-// This is a "stub" file.  It's a little start on your solution.
-// It's not a complete solution though; you have to write some code.
-
-// Package triangle should have a package comment that summarizes what it's about.
-// https://golang.org/doc/effective_go.html#commentary
+// Package triangle determines whether given side lengths can form a triangle or not
 package triangle
 
+import "math"
 
-// Notice KindFromSides() returns this type. Pick a suitable data type.
-type Kind
+type Kind string
 
 const (
-    // Pick values for the following identifiers used by the test program.
-    NaT // not a triangle
-    Equ // equilateral
-    Iso // isosceles
-    Sca // scalene
+	NaT Kind = "nat" // not a triangle
+	Equ Kind = "equ" // equilateral
+	Iso Kind = "iso" // isosceles
+	Sca Kind = "sca" // scalene
 )
 
-// KindFromSides should have a comment documenting it.
+// KindFromSides determines whether given side lengths can form a triangle or not
 func KindFromSides(a, b, c float64) Kind {
-	// Write some code here to pass the test suite.
-	// Then remove all the stock comments.
-	// They're here to help you get started but they only clutter a finished solution.
-	// If you leave them in, reviewers may protest!
-	var k Kind
-	return k
+	// If any side is less then zero, automatically not a triangle
+	if a <= 0 ||
+		math.IsNaN(a) ||
+		math.IsInf(a, 0) ||
+		b <= 0 ||
+		math.IsNaN(b) ||
+		math.IsInf(b, 0) ||
+		c <= 0 ||
+		math.IsNaN(c) ||
+		math.IsInf(c, 0) ||
+		a+b < c ||
+		b+c < a ||
+		a+c<b {
+		return NaT
+	}
+
+	// Check for equalateral triangle
+	if a == b && a == c && b == c {
+		return Equ
+	}
+
+	// Check for isosoles triangle
+	if a == b || a == c || b == c {
+		return Iso
+	}
+
+	return Sca
 }
