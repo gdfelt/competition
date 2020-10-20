@@ -15,14 +15,13 @@ func New(hours int, minutes int) Clock {
 	currTime := (hours*60 + minutes) % (24 * 60)
 	if currTime < 0 {
 		currTime += 24 * 60
-		currTime %= 24 * 60
 	}
 	return Clock{currTime}
 }
 
 // Add function adds time to a given clock
 func (c Clock) Add(minutes int) Clock {
-	return New((c.currTime/60)%24, c.currTime%60+minutes)
+	return New(0, c.currTime+minutes)
 }
 
 // Subtract function removes time from a given clock
