@@ -1,5 +1,5 @@
 
-import aoc01
+from advent_2019 import aoc01
 
 class TestAoC:
     def test_aoc01_main_one(self):
