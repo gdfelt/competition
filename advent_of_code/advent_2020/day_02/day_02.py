@@ -1,30 +1,38 @@
 
-
 class Day02(object):
 
-    lines = []
-    count = 0
-
     def __init__(self):
+        self.data = []
+        self.count = 0
+
         with open('advent_2020/day_02/day_02.dat') as file:
-            self.lines = [line.rstrip() for line in file]
+            for line in file:
+                self.data.append(self.parse_pwd(line.strip()))
             
     '''
-    Returns true if pw conforms to policy; false otherwise
+    Returns parsed fields into an array
+    e.x.
+    3-7 q: qjxlgqd  => [3, 7, "q", "qjxlgqd"]
     '''
     def parse_pwd(self, policy_line):
-        policy = policy_line.split(':')[0].strip()
-        pw = policy_line.split(':')[1].strip()
+        policy, pw = policy_line.split(':')
+        pw = pw.strip()
 
         # Parse policy part
         minmax, target = policy.split(' ')
         min, max = minmax.split('-')
 
-        return (pw.count(str(target)) <= int(max) and pw.count(str(target)) >= int(min))
+        return [int(min), int(max), str(target), str(pw)]
     
     def part_01(self):
-        for l in self.lines:
-            if self.parse_pwd(l):
+        for d in self.data:
+            if d[3].count(d[2]) >= d[0] and d[3].count(d[2]) <= d[1]:
+                self.count+=1
+        return self.count
+
+    def part_02(self):
+        for d in self.data:         
+            if (d[3][d[0]-1] == d[2]) ^ (d[3][d[1]-1] == d[2]):
                 self.count+=1
         return self.count
 

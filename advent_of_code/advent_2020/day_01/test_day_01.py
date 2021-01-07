@@ -1,11 +1,11 @@
 
-from advent_2020.day_01 import day_01
+from day_01 import main
 
 class TestAoC:
     def test_day1_part1(self):
-        assert day_01.main(2) == 1020099
+        assert main(2) == 1020099
 
     def test_day1_part2(self):
-        assert day_01.main(3) == 49214880
+        assert main(3) == 49214880
 
     

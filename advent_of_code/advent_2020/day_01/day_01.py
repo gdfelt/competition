@@ -9,7 +9,5 @@ def main(nums):
             if sum(c) == 2020:
                 return math.prod(c)
         
-
-
 if __name__ == "__main__":
     main(2)
