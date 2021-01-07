@@ -9,17 +9,21 @@ class Day03(object):
             for line in file:
                 self.data.append(line.strip())
 
-
-    def part_01(self):
+    def calc_slope(self, right, down):
         count = 0
         point = 0
-        for line in self.data:
-            if line[point] == '#':
+        for x in range(0, len(self.data), down):
+            if self.data[x][point] == '#':
                 count+=1
-            point+=3
-            point%=len(line)
-
+            point+=right
+            point%=len(self.data[x])
         return count
 
+    def part_01(self):
+        return self.calc_slope(3, 1)
+
+    '''
+
+    '''
     def part_02(self):
-        return 0
+        return self.calc_slope(1, 1) * self.calc_slope(3, 1) * self.calc_slope(5, 1) * self.calc_slope(7, 1) * self.calc_slope(1, 2)

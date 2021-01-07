@@ -11,6 +11,6 @@ class TestAoC:
         assert setup.part_01() == 230
 
     def test_day3_part2(self, setup):
-        assert setup.part_02() == 230
+        assert setup.part_02() == 9533698720
 
    
