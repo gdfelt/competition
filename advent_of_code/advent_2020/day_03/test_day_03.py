@@ -8,9 +8,9 @@ class TestAoC:
         return Day03()
 
     def test_day3_part1(self, setup):
-        assert setup.part_01() == 0
+        assert setup.part_01() == 230
 
     def test_day3_part2(self, setup):
-        assert setup.part_02() == 0
+        assert setup.part_02() == 230
 
    
