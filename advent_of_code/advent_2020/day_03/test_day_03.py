@@ -1,8 +1,8 @@
 import pytest
 from day_03 import Day03
 
-class TestAoC:
 
+class TestAoC:
     @pytest.fixture
     def setup(self):
         return Day03()
@@ -12,5 +12,3 @@ class TestAoC:
 
     def test_day3_part2(self, setup):
         assert setup.part_02() == 9533698720
-
-   
