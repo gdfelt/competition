@@ -19,10 +19,6 @@ class Day03(object):
     def part_01(self):
         return self.calc_slope(3, 1)
 
-    """
-
-    """
-
     def part_02(self):
         return (
             self.calc_slope(1, 1)
