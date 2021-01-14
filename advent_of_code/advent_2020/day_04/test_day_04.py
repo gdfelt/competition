@@ -11,4 +11,4 @@ class TestAoC:
         assert setup.part_01() == 204
 
     def test_day4_part2(self, setup):
-        assert setup.part_02() == 0
+        assert setup.part_02() == 1
