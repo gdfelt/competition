@@ -18,4 +18,4 @@ class TestAoC:
         assert setup.part_01() == 828
 
     def test_day5_part2(self, setup):
-        assert setup.part_02() == 0
+        assert setup.part_02() == 565

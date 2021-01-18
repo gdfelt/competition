@@ -31,4 +31,14 @@ class Day05(object):
         return highest
 
     def part_02(self):
-        return 0
+        pass_list = [int(x) for x in range(self.part_01())]
+        for line in self.passes:
+            id = self.calc_seat(line[:7], (0, 127)) * 8 + self.calc_seat(
+                line[7:], (0, 7)
+            )
+            try:
+                pass_list.remove(id)
+            except ValueError:
+                pass
+
+        return pass_list.pop()
