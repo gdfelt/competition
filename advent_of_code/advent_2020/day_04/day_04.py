@@ -1,3 +1,6 @@
+import re
+
+
 class Day04(object):
     def __init__(self):
         self.pp_list = []
@@ -22,62 +25,75 @@ class Day04(object):
         )
 
     def fields_valid(self, passport):
-        # Birthyear validation
-        if not (
-            passport["byr"].isdigit()
-            and len(passport["byr"]) == 4
-            and int(passport["byr"]) >= 1920
-            and int(passport["byr"]) <= 2002
-        ):
+        return (
+            self.val_birthyear(passport["byr"])
+            and self.val_issueyear(passport["iyr"])
+            and self.val_expireyear(passport["eyr"])
+            and self.val_eyecolor(passport["ecl"])
+            and self.val_haircolor(passport["hcl"])
+            and self.val_height(passport["hgt"])
+        )
+
+    def val_birthyear(self, value):
+        return (
+            value.isdigit()
+            and len(value) == 4
+            and int(value) >= 1920
+            and int(value) <= 2002
+        )
+
+    def val_issueyear(self, value):
+        return (
+            value.isdigit()
+            and len(value) == 4
+            and int(value) >= 2010
+            and int(value) <= 2020
+        )
+
+    def val_expireyear(self, value):
+        return (
+            value.isdigit()
+            and len(value) == 4
+            and int(value) >= 2020
+            and int(value) <= 2030
+        )
+
+    def val_height(self, value):
+        hgt_unit = value[-2:]
+        hgt_value = value[:-2]
+        # print(hgt_value, hgt_unit)
+        if not (hgt_unit == "cm" or hgt_unit == "in"):
+            return False
+        if hgt_unit == "cm":
+            return int(hgt_value) <= 193 and int(hgt_value) >= 150
+        return int(hgt_value) <= 76 and int(hgt_value) >= 59
+
+    def val_haircolor(self, value):
+        p = re.compile("^#[0-9a-fA-F]{6}")
+        if p.match(value):
+            return True
+        else:
             return False
 
-        # Issue Year
-        if not (
-            passport["iyr"].isdigit()
-            and len(passport["iyr"]) == 4
-            and int(passport["iyr"]) >= 2010
-            and int(passport["iyr"]) <= 2020
-        ): 
-            return False
+    def val_eyecolor(self, value):
+        return (
+            value == "amb"
+            or value == "blu"
+            or value == "brn"
+            or value == "gry"
+            or value == "grn"
+            or value == "hzl"
+            or value == "oth"
+        )
 
-        # Exp Year
-        if not (
-            passport["eyr"].isdigit()
-            and len(passport["eyr"]) == 4
-            and int(passport["eyr"]) >= 2020
-            and int(passport["eyr"]) <= 2030
-        ): 
-            return False
+    # Passport ID
 
-        # Height
-
-        # Hair Color
-        # if not (
-
-        # ):
-        #     return False
-
-        # Eye Color
-        if not (
-            passport["ecl"] == "amb"
-            or passport["ecl"] == "blu"
-            or passport["ecl"] == "brn"
-            or passport["ecl"] == "gry" 
-            or passport["ecl"] == "grn"
-            or passport["ecl"] == "hzl" 
-            or passport["ecl"] == "oth" 
-        ):
-            return False
-
-        # Passport ID
-        
-        return True
+    # Country ID
 
     def part_01(self):
         count = 0
         for d in self.pp_list:
-            if self.fields_present(d):
-                count += 1
+            count = count + 1 if self.fields_present(d) else count
         return count
 
     def part_02(self):
