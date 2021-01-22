@@ -32,6 +32,7 @@ class Day04(object):
             and self.val_eyecolor(passport["ecl"])
             and self.val_haircolor(passport["hcl"])
             and self.val_height(passport["hgt"])
+            and self.val_passportid(passport["pid"])
         )
 
     def val_birthyear(self, value):
@@ -87,6 +88,8 @@ class Day04(object):
         )
 
     # Passport ID
+    def val_passportid(self, value):
+        return len(value) == 9 and value.isdigit()
 
     # Country ID
 
