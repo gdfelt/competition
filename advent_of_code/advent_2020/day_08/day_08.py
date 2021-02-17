@@ -37,6 +37,9 @@ class Day08(object):
             elif current.inst == "jmp":
                 inst_ptr += current.value
 
+        # for i in self.instruction_set:
+        #     print(i)
+
         return accum
 
     def part_02(self):
